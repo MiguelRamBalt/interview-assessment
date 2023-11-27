@@ -1,0 +1,12 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.header {
+    background-color: cornflowerblue;
+}
+
+.content {
+    background-color: burlywood;
+}

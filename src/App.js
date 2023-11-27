@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import AddItem from "./components/AddItem"
+import Header from './components/Header'
+import "./styles.css";
 
 function App() {
+  const fetchDog = () => {
+    axios
+      .get("https://dog.ceo/api/breeds/image/random")
+      .then(function (response) {
+        console.log(response.data.message);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header title="Shopping Car" />
+      <AddItem />
+      <button className="btn" onClick={() => fetchDog()}>
+        Call API
+      </button>
     </div>
   );
 }
