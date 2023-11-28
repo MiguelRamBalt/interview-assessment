@@ -1,22 +1,28 @@
 import axios from "axios";
 import AddItem from "./components/AddItem"
-import Header from './components/Header'
 import "./styles.css";
+import { useEffect } from "react";
 
 function App() {
   const fetchDog = () => {
     axios
       .get("https://dog.ceo/api/breeds/image/random")
-      .then(function (response) {
-        console.log(response.data.message);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   };
+
+  useEffect(() => {
+    const getImg = async () => {
+      setInterval(() => {
+        console.log('fetchDog')
+      }, 500000)
+    }
+
+    // getImg();
+
+  }, [])
+
   return (
     <div className="App">
-      <Header title="Shopping Car" />
+      shopping cart
       <AddItem />
       <button className="btn" onClick={() => fetchDog()}>
         Call API
