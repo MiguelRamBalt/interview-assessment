@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import AddItem from "./components/AddItem"
+import "./styles.css";
+import { useEffect } from "react";
 
 function App() {
+  const fetchDog = () => {
+    axios
+      .get("https://dog.ceo/api/breeds/image/random")
+  };
+
+  useEffect(() => {
+    const getImg = async () => {
+      setInterval(() => {
+        console.log('fetchDog')
+      }, 500000)
+    }
+
+    // getImg();
+
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      shopping cart
+      <AddItem />
+      <button className="btn" onClick={() => fetchDog()}>
+        Call API
+      </button>
     </div>
   );
 }
