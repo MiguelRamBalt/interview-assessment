@@ -22,7 +22,7 @@ export const AddItem = () => {
                 Add Product
             </button>
             <input type="text" value={name} />
-            <div>{counter} products added</div>
+            <div> # products added</div>
             <ul>
                 list
             </ul>
